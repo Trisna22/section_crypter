@@ -15,8 +15,7 @@ echo "\n######################### COMPILING ENCRYPTOR ######################\n"
 
 g++ --no-warnings -o $ENCRYPTOR ./src/crypter.cpp
 $ENCRYPTOR $STUB
-
+objdump -d -j .secure -M intel $STUB
 
 echo "\n######################### EXECUTING stub    ######################\n"
-objdump -d -j .secure -M intel $STUB
-$stub
+$STUB
